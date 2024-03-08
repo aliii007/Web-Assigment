@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .resume-container {
+    max-width: 800px;
+    margin: 20px auto;
+    border: 2px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 20px;
+  }
+  
+  .profile-section {
+    position: relative;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-bottom: 2px solid #ccc; /* Line under the profile section */
+  }
+  
+  .profile-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  
+  .wavy-background {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 120px; /* Adjust the width as needed */
+    height: 60px; /* Adjust the height as needed */
+    background: url('') no-repeat;
+    background-size: cover;
+  }
+  
+  .profile-info {
+    text-align: right;
+  }
+  
+  .profile-info h2,
+  .profile-info p,
+  .profile-content h2,
+  .column h2,
+  .small-text {
+    color: #333; /* Default color for text */
+  }
+  
+  .profile-info h2,
+  .profile-content h2,
+  .column h2 {
+    color: purple; /* Purple color for headings */
+  }
+  
+  .profile-info h2 {
+    margin: 0;
+  }
+  
+  .profile-content {
+    width: 100%; /* Stretch the profile description to full width */
+    margin-top: 20px; /* Add margin for separation */
+  }
+  
+  .profile-content h2 {
+    margin-bottom: 10px;
+  }
+  
+  .resume-sections {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+  }
+  
+  .column {
+    width: 48%;
+    padding-right: 20px; /* Add some padding to the right column for separation */
+  }
+  
+  .column:last-child {
+    padding-right: 0; /* Remove padding from the last column */
+  }
+  
+  .section-divider {
+    width: 100%;
+    border-top: 2px solid #ccc; /* Line between sections */
+    margin: 20px 0;
+  }
+  
+  .small-text {
+    font-size: 14px;
+  }
+  
+  .column ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .column ul li {
+    margin-bottom: 5px;
+  }
+  
+  img {
+    max-width: 10%;
+    max-height: 10%;
+    border-radius: 20%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Application Form</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    label {
+      width: 100%;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input,
+    select,
+    textarea {
+      width: calc(48% - 10px);
+      margin-bottom: 10px;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      color: #333;
+    }
+
+    th {
+      background-color: #4caf50;
+      color: #fff;
+    }
+
+    @media (max-width: 600px) {
+      input,
+      select,
+      textarea {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>Job Application Form</h2>
+    <form id="jobApplicationForm">
+      <!-- Personal Information -->
+      <label>Full Name:</label>
+      <input type="text" id="fullName" required>
+      
+      <label>Email Address:</label>
+      <input type="email" id="email" required>
+      
+      <label>Phone Number:</label>
+      <input type="tel" id="phone" required>
+      
+      <label>Street Address:</label>
+      <input type="text" id="street" required>
+      
+      <label>City:</label>
+      <input type="text" id="city" required>
+      
+      <label>State:</label>
+      <input type="text" id="state" required>
+      
+      <label>ZIP Code:</label>
+      <input type="text" id="zipCode" required>
+
+      <!-- Resume and Cover Letter -->
+      <label>Upload Resume:</label>
+      <input type="file" id="resume" accept=".pdf, .doc, .docx" required>
+      
+      <label>Cover Letter:</label>
+      <textarea id="coverLetter" required></textarea>
+
+      <!-- Education -->
+      <label>Highest Level of Education Attained:</label>
+      <select id="educationLevel" required>
+        <option value="highSchool">High School</option>
+        <option value="bachelor">Bachelor's Degree</option>
+        <option value="master">Master's Degree</option>
+        <option value="phd">Ph.D.</option>
+      </select>
+      
+      <label>Name of School/University:</label>
+      <input type="text" id="schoolName" required>
+      
+      <label>Major/Area of Study:</label>
+      <input type="text" id="major" required>
+      
+      <label>Graduation Year:</label>
+      <input type="number" id="graduationYear" required>
+
+      <!-- Employment History -->
+      <label>Previous Job Titles:</label>
+      <input type="text" id="jobTitles" required>
+      
+      <label>Company Names:</label>
+      <input type="text" id="companyNames" required>
+      
+      <label>Employment Dates:</label>
+      <input type="text" id="employmentDates" required>
+      
+      <label>Job Responsibilities:</label>
+      <input type="text" id="jobResponsibilities" required>
+
+      <!-- Skills -->
+      <label>Relevant Skills:</label>
+      <input type="text" id="skills" required>
+      
+      <label>Certifications:</label>
+      <input type="text" id="certifications" required>
+
+      <!-- Availability -->
+      <label>Start Date:</label>
+      <input type="date" id="startDate" required>
+      
+      <label>Preferred Work Schedule:</label>
+      <input type="text" id="workSchedule" required>
+      
+      <label>Willingness to Relocate:</label>
+      <input type="checkbox" id="relocate">
+
+      <!-- References -->
+      <label>Reference Name:</label>
+      <input type="text" id="referenceName" required>
+      
+      <label>Reference Contact Information:</label>
+      <input type="text" id="referenceContact" required>
+      
+      <label>Relationship to Applicant:</label>
+      <input type="text" id="relationship" required>
+
+      <!-- Additional Questions -->
+      <label>Why do you want to work for this company?</label>
+      <textarea id="whyWorkHere" required></textarea>
+
+      <!-- Consent and Agreement -->
+      <input type="checkbox" id="termsConditions" required>
+      <label for="termsConditions">I agree to the terms and conditions</label>
+      
+      <input type="checkbox" id="privacyPolicy" required>
+      <label for="privacyPolicy">I acknowledge the privacy policy</label>
+
+      <!-- Submit Button -->
+      <button type="button" onclick="submitForm()">Submit Application</button>
+    </form>
+
+    <!-- Table to Display Submitted Information -->
+    <table id="submittedTable" style="display:none;"></table>
+  </div>
+
+  <script>
+    function submitForm() {
+      // Collect form data
+      const formData = {
+        'Full Name': document.getElementById('fullName').value,
+        'Email Address': document.getElementById('email').value,
+        'Phone Number': document.getElementById('phone').value,
+        'Street Address': document.getElementById('street').value,
+        'City': document.getElementById('city').value,
+        'State': document.getElementById('state').value,
+        'ZIP Code': document.getElementById('zipCode').value,
+        'Upload Resume': document.getElementById('resume').value,
+        'Cover Letter': document.getElementById('coverLetter').value,
+        'Highest Education Level': document.getElementById('educationLevel').value,
+        'School/University Name': document.getElementById('schoolName').value,
+        'Major/Area of Study': document.getElementById('major').value,
+        'Graduation Year': document.getElementById('graduationYear').value,
+        'Previous Job Titles': document.getElementById('jobTitles').value,
+        'Company Names': document.getElementById('companyNames').value,
+        'Employment Dates': document.getElementById('employmentDates').value,
+        'Job Responsibilities': document.getElementById('jobResponsibilities').value,
+        'Relevant Skills': document.getElementById('skills').value,
+        'Certifications': document.getElementById('certifications').value,
+        'Start Date': document.getElementById('startDate').value,
+        'Preferred Work Schedule': document.getElementById('workSchedule').value,
+        'Willingness to Relocate': document.getElementById('relocate').checked ? 'Yes' : 'No',
+        'Reference Name': document.getElementById('referenceName').value,
+        'Reference Contact Information': document.getElementById('referenceContact').value,
+        'Relationship to Applicant': document.getElementById('relationship').value,
+        'Why Work Here': document.getElementById('whyWorkHere').value,
+        'Agree to Terms and Conditions': document.getElementById('termsConditions').checked ? 'Yes' : 'No',
+        'Acknowledge Privacy Policy': document.getElementById('privacyPolicy').checked ? 'Yes' : 'No',
+      };
+
+      // Display submitted information in a table
+      const submittedTable = document.getElementById('submittedTable');
+      submittedTable.innerHTML = '';
+
+      // Create table headers
+      const tableHeaders = Object.keys(formData);
+      const tableHeaderRow = tableHeaders.map(header => `<th>${header}</th>`).join('');
+      submittedTable.innerHTML += `<thead><tr>${tableHeaderRow}</tr></thead>`;
+
+      // Create table rows
+      const tableRow = `<tr>${tableHeaders.map(header => `<td>${formData[header]}</td>`).join('')}</tr>`;
+      submittedTable.innerHTML += `<tbody>${tableRow}</tbody>`;
+
+      submittedTable.style.display = 'table';
+    }
+  </script>
+
+</body>
+
+</html>
